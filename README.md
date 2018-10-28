@@ -19,7 +19,8 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
 ### Vulnerability #1: **SQL Injection (SQLi)**
   - Summary:
     - vulnerability found in https://104.198.208.81/blue/public/salesperson.php by passing in SQLi in the ```id``` parameter
-  - GIF Walkthrough:![](sqli.gif)
+  - GIF Walkthrough:
+  ![](sqli.gif)
   - Steps to recreate:
     - send HTTP GET request to ```salesperson.php``` with ```' OR SLEEP(10)=0--'``` as the ```id``` parameter
     - the response will be delayed for 10 seconds as the database sleeps for 10 seconds which suggests that the SQLi was successful
@@ -27,7 +28,8 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
 ### Vulnerability #2: **Session Hijacking/Fixation**
  - Summary:
     - vulnerability exploitable simply by changing the PHPSESSIONID
-  - GIF Walkthrough:![](session_hijacking.gif)
+  - GIF Walkthrough:
+  ![](session_hijacking.gif)
   - Steps to recreate:
     - open the webpage in two different browsers and make sure the PHPSESSIONID is different and both are logged out
     - log in as admin from browser 1
@@ -39,7 +41,8 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
 ### Vulnerability #1: **Username Enumeration**
   - Summary:
     - vulnerability found in https://104.198.208.81/blue/public/staff/login.php which returns differently formatted error message depending on the existence of username
-  - GIF Walkthrough:![](user_enumeration.gif)
+  - GIF Walkthrough:
+  ![](user_enumeration.gif)
   - Steps to recreate:
     - try to log in with the known username ```jmonroe99``` which was provided
     - notice that the error message is in bold
@@ -60,7 +63,8 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
  - Summary:
     - vulnerability found in https://104.198.208.81/blue/public/contact.php in the ```Feedback``` field
     - script is executed when an admin views the feedback in https://104.198.208.81/blue/public/staff/feedback/index.php
-  - GIF Walkthrough:![](xss.gif)
+  - GIF Walkthrough:
+  ![](xss.gif)
   - Steps to recreate:
     - submit a new feedback with ```<script>alert('yjcho321');</script>``` in the ```Feedback``` field
     - log in as admin and view feedbacks in https://104.198.208.81/blue/public/staff/feedback/index.php
@@ -71,7 +75,8 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
 ### Vulnerability #1: **Insecure Direct Object Reference (IDOR)**
   - Summary:
     - vulnerability found in https://104.198.208.81/red/public/salesperson.php by specifying the ```id``` parameter
-  - GIF Walkthrough:![](idor.gif)
+  - GIF Walkthrough:
+  ![](idor.gif)
   - Steps to recreate:
     - send HTTP GET request to ```salesperson.php``` with the ```id``` parameter as 10, 11, 12, and 13
     - notice that the non-public profiles for the ```id``` value are accessible in the public webpage
@@ -83,7 +88,8 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
 ### Vulnerability #2: **Cross-Site Request Forgery (CSRF)**
  - Summary:
     - vulnerability found in https://104.198.208.81/red/public/staff/users/edit.php with any user's ```id``` by removing the CSRF token from the form
-  - GIF Walkthrough:![](csrf.gif)
+  - GIF Walkthrough:
+  ![](csrf.gif)
   - Steps to recreate:
     - open up the webpage and modify CSRF token value to an arbitrary value in the form
     - modify any other fields in the form as wished and submit the form
