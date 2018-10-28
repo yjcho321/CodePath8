@@ -45,17 +45,27 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
     - notice that the error message is in bold
     - now try to log in with some other username ```jmonroe```
     - notice that the error message is not in bold
-
+  - Developer mistake:
+    - when an existing username is entered the error message is shown in the following format:
+    ```html
+    <span class="failure">Log in was unsuccessful.</span>
+    ```
+    - when a non-existing username is entered the error message is shown in the following format:
+    ```html
+    <span class="failed">Log in was unsuccessful.</span>
+    ```
+    - the developer failed to standardize the ```class``` of the HTML ```span``` element
+    
 ### Vulnerability #2: **Cross-Site Scripting (XSS)**
  - Summary:
-    - vulnerability found in https://104.198.208.81/blue/public/contact.php in the ```Feedback```
+    - vulnerability found in https://104.198.208.81/blue/public/contact.php in the ```Feedback``` field
     - script is executed when an admin views the feedback in https://104.198.208.81/blue/public/staff/feedback/index.php
   - GIF Walkthrough:![](xss.gif)
   - Steps to recreate:
     - submit a new feedback with ```<script>alert('yjcho321');</script>``` in the ```Feedback``` field
     - log in as admin and view feedbacks in https://104.198.208.81/blue/public/staff/feedback/index.php
     - notice that the script is executed with an alert message of ```yjcho321```
-
+  
 ## Red
 
 ### Vulnerability #1: **Insecure Direct Object Reference (IDOR)**
@@ -64,9 +74,11 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
   - GIF Walkthrough:![](idor.gif)
   - Steps to recreate:
     - send HTTP GET request to ```salesperson.php``` with the ```id``` parameter as 10, 11, 12, and 13
-    - notice that the profiles for the ```id``` value are accessible without logging in
-    - repeat the process on the other two versions of the webpage, Green and Blue
-    - notice that the profiles are now restricted and cannot be accessed
+    - notice that the non-public profiles for the ```id``` value are accessible in the public webpage
+    - repeat the process on the other two versions of the webpages, Green and Blue
+    - notice that the profiles are now restricted and is redirected to ```/public/territories.php``` page
+  - Developer mistake:
+    - failed to check whether the profile corresponding to the requested ```id``` is public or not when accessed from the public webpage
 
 ### Vulnerability #2: **Cross-Site Request Forgery (CSRF)**
  - Summary:
