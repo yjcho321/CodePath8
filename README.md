@@ -20,6 +20,7 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
   - Summary:
     - vulnerability found in https://104.198.208.81/blue/public/salesperson.php by passing in SQLi in the ```id``` parameter
   - GIF Walkthrough:
+  
   ![](sqli.gif)
   - Steps to recreate:
     - send HTTP GET request to ```salesperson.php``` with ```' OR SLEEP(10)=0--'``` as the ```id``` parameter
@@ -29,6 +30,7 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
  - Summary:
     - vulnerability exploitable simply by changing the PHPSESSIONID
   - GIF Walkthrough:
+  
   ![](session_hijacking.gif)
   - Steps to recreate:
     - open the webpage in two different browsers and make sure the PHPSESSIONID is different and both are logged out
@@ -42,6 +44,7 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
   - Summary:
     - vulnerability found in https://104.198.208.81/blue/public/staff/login.php which returns differently formatted error message depending on the existence of username
   - GIF Walkthrough:
+  
   ![](user_enumeration.gif)
   - Steps to recreate:
     - try to log in with the known username ```jmonroe99``` which was provided
@@ -64,6 +67,7 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
     - vulnerability found in https://104.198.208.81/blue/public/contact.php in the ```Feedback``` field
     - script is executed when an admin views the feedback in https://104.198.208.81/blue/public/staff/feedback/index.php
   - GIF Walkthrough:
+  
   ![](xss.gif)
   - Steps to recreate:
     - submit a new feedback with ```<script>alert('yjcho321');</script>``` in the ```Feedback``` field
@@ -76,6 +80,7 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
   - Summary:
     - vulnerability found in https://104.198.208.81/red/public/salesperson.php by specifying the ```id``` parameter
   - GIF Walkthrough:
+  
   ![](idor.gif)
   - Steps to recreate:
     - send HTTP GET request to ```salesperson.php``` with the ```id``` parameter as 10, 11, 12, and 13
@@ -89,6 +94,7 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
  - Summary:
     - vulnerability found in https://104.198.208.81/red/public/staff/users/edit.php with any user's ```id``` by removing the CSRF token from the form
   - GIF Walkthrough:
+  
   ![](csrf.gif)
   - Steps to recreate:
     - open up the webpage and modify CSRF token value to an arbitrary value in the form
