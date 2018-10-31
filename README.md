@@ -64,14 +64,14 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
     
 ### Vulnerability #2: **Cross-Site Scripting (XSS)**
  - Summary:
-    - vulnerability found in https://104.198.208.81/blue/public/contact.php in the ```Feedback``` field
-    - script is executed when an admin views the feedback in https://104.198.208.81/blue/public/staff/feedback/index.php
+    - vulnerability found in https://104.198.208.81/green/public/contact.php in the ```Feedback``` field
+    - script is executed when an admin views the feedback in https://104.198.208.81/green/public/staff/feedback/index.php
   - GIF Walkthrough:
   
   ![](xss.gif)
   - Steps to recreate:
     - submit a new feedback with ```<script>alert('yjcho321');</script>``` in the ```Feedback``` field
-    - log in as admin and view feedbacks in https://104.198.208.81/blue/public/staff/feedback/index.php
+    - log in as admin and view feedbacks in https://104.198.208.81/green/public/staff/feedback/index.php
     - notice that the script is executed with an alert message of ```yjcho321```
   
 ## Red
