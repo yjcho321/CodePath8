@@ -42,7 +42,7 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
 
 ### Vulnerability #1: **Username Enumeration**
   - Summary:
-    - vulnerability found in https://104.198.208.81/blue/public/staff/login.php which returns differently formatted error message depending on the existence of username
+    - vulnerability found in https://104.198.208.81/green/public/staff/login.php which returns differently formatted error message depending on the existence of username
   - GIF Walkthrough:
   
   ![](user_enumeration.gif)
